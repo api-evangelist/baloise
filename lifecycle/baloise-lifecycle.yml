@@ -1,0 +1,8 @@
+name: Baloise API Lifecycle
+generated: '2026-10-09'
+method: derived
+source: openapi/baloise-corellia-contracts-openapi.yml
+versioning: Path-based major versions (/contracts/v2 for Corellia, /v0.8 for OIM); Corellia exposes GET /contracts/v2/version returning the current API version following semver. The OIM README describes the API as work in progress.
+deprecation: No deprecation policy published; no operations marked deprecated in either spec.
+status_page: null
+sla: null

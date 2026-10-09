@@ -1,0 +1,57 @@
+openapi: 3.2.0
+info:
+  title: Baloise Orders API
+  version: '0.8'
+  description: 'Operations tagged orders across 2 of this provider''s published API definitions: oim-api-v0.8.yaml, baloise-oim-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: /v0.8
+tags:
+- name: Orders
+paths:
+  /order/{id}:
+    get:
+      summary: show the order status
+      description: is made to display the order status
+      operationId: api.calls_phs.order_get
+      tags:
+      - Orders
+      responses:
+        200:
+          description: order status
+        404:
+          description: Specified order not found
+      parameters:
+      - name: id
+        in: path
+        description: the orderid from the original order
+        required: true
+        schema:
+          type: string
+          example: order123
+    servers:
+    - url: /v0.8
+  /order/{id}/details:
+    get:
+      summary: show the order details
+      description: is made to display the order details
+      operationId: api.calls_phs.order_get_detail
+      tags:
+      - Orders
+      responses:
+        200:
+          description: order details
+        404:
+          description: Specified order not found
+      parameters:
+      - name: id
+        in: path
+        description: the orderid from the original order
+        required: true
+        schema:
+          type: string
+          example: order123
+    servers:
+    - url: /v0.8
+x-refined-from:
+- oim-api-v0.8.yaml
+- baloise-oim-openapi.yml

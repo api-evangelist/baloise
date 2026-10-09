@@ -1,0 +1,47 @@
+generated: '2026-10-09'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/baloise-corellia-contracts-openapi.yml
+- openapi/baloise-oim-openapi.yml
+format: custom
+envelope:
+  media_type: application/json; charset=UTF-8
+  schema: ErrorResponse
+coverage:
+  operations: 17
+  statuses_declared: 5
+problems:
+- status: 400
+  title: Bad Request
+  description: Bad request parameters.
+  operations: 7
+  media_types:
+  - application/json; charset=UTF-8
+  schema: ErrorResponse
+- status: 404
+  title: Not Found
+  description: Response for unknown resource
+  operations: 10
+  media_types: []
+  schema: null
+- status: 409
+  title: Conflict
+  description: update failed
+  operations: 2
+  media_types: []
+  schema: null
+- status: 503
+  title: Service Unavailable
+  description: Technical issue on server side, please retry later
+  operations: 4
+  media_types:
+  - application/json; charset=UTF-8
+  schema: ErrorResponse
+- status: default
+  title: null
+  description: Version identifier
+  operations: 4
+  media_types:
+  - application/json; charset=UTF-8
+  schema: ContractReference

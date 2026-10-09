@@ -1,0 +1,41 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist overlay for Baloise Corellia Contracts API
+  version: 1.0.0
+extends: ../openapi/_original/baloise-corellia-contracts-openapi.yml
+x-generated: '2026-10-09'
+x-method: generated
+x-source: openapi/baloise-corellia-contracts-openapi.yml
+x-rationale: >-
+  Adds provenance, a link to the source repository and agent-facing notes drawn from the
+  spec's own operation descriptions. No servers or security schemes are added because
+  Baloise publishes none. The original contract is not mutated.
+actions:
+- target: $.info
+  description: Record provenance and the absence of a public host.
+  update:
+    x-provider: baloise
+    x-source-repository: https://github.com/baloise/corellia
+    x-hosting-note: The specification declares no servers[]; each implementer (the host of this API) supplies its own base URL.
+- target: $
+  description: Link the source repository as external documentation.
+  update:
+    externalDocs:
+      description: Corellia specification repository
+      url: https://github.com/baloise/corellia
+- target: $.paths['/contracts/v2'].post
+  description: Note the documented call order (documents first, then contract).
+  update:
+    x-agent-hint: Upload each document first with uploadDocument and pass the returned handle(s) in the contract body.
+    x-mcp-tool: upload_contract
+- target: $.paths['/contracts/v2/documents'].post
+  description: Note per-document semantics and required headers.
+  update:
+    x-agent-hint: Call once per document; X-Caller-Name and X-Event-ID (unique per request) headers are required.
+    x-mcp-tool: upload_contract_document
+- target: $.paths['/contracts/v2/cancellations'].post
+  update:
+    x-mcp-tool: cancel_contract
+- target: $.paths['/contracts/v2/version'].get
+  update:
+    x-mcp-tool: get_contracts_api_version

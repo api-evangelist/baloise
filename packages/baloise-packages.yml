@@ -1,0 +1,64 @@
+name: Baloise Packages
+generated: '2026-10-09'
+method: searched
+source: https://registry.npmjs.org/@baloise/ds-core
+note: No first-party client SDK exists for the Corellia Contracts or OIM API specifications. The packages below are Baloise's first-party open-source
+  distributions (design system, web utilities, GitOps CLI). Versions and dates read from registry metadata endpoints on 2026-10-09.
+packages:
+- name: '@baloise/ds-core'
+  registry: npm
+  url: https://www.npmjs.com/package/@baloise/ds-core
+  language: JavaScript
+  official: false
+  version: 19.11.0
+  published: '2026-09-21'
+  repository: https://github.com/baloise/design-system
+  description: Baloise Design System core web components (Apache-2.0).
+  ownership_audit: 'registry has no such package: official downgraded (harvest-packages.py --audit)'
+- name: '@baloise/ds-angular'
+  registry: npm
+  url: https://www.npmjs.com/package/@baloise/ds-angular
+  language: TypeScript
+  official: false
+  version: 19.11.0
+  published: '2026-09-21'
+  repository: https://github.com/baloise/design-system
+  ownership_audit: 'registry has no such package: official downgraded (harvest-packages.py --audit)'
+- name: '@baloise/ds-react'
+  registry: npm
+  url: https://www.npmjs.com/package/@baloise/ds-react
+  language: TypeScript
+  official: false
+  version: 19.11.0
+  published: '2026-09-21'
+  repository: https://github.com/baloise/design-system
+  ownership_audit: 'registry metadata names neither the provider''s domain nor its GitHub org: official downgraded (harvest-packages.py --audit)'
+- name: '@baloise/design-system-components'
+  registry: npm
+  url: https://www.npmjs.com/package/@baloise/design-system-components
+  language: JavaScript
+  official: false
+  version: 15.2.4
+  published: '2024-02-13'
+  repository: https://github.com/baloise/design-system
+  note: Legacy package name, superseded by @baloise/ds-core (last release 2024-02-13).
+  ownership_audit: 'registry has no such package: official downgraded (harvest-packages.py --audit)'
+- name: '@baloise/web-app-utils'
+  registry: npm
+  url: https://www.npmjs.com/package/@baloise/web-app-utils
+  language: TypeScript
+  official: false
+  version: 3.17.4
+  published: '2026-07-01'
+  repository: https://github.com/baloise/web-app-utils
+  ownership_audit: 'registry metadata names neither the provider''s domain nor its GitHub org: official downgraded (harvest-packages.py --audit)'
+- name: baloise/gitopscli
+  registry: docker
+  url: https://hub.docker.com/r/baloise/gitopscli
+  language: Python
+  official: true
+  version: 5.13.0
+  published: '2026-09-16'
+  repository: https://github.com/baloise/gitopscli
+  note: Not published on PyPI (pypi.org/pypi/gitopscli/json returned 404); distributed as a Docker image and via uvx from the Git repository.
+    Version from Docker Hub tags and GitHub release v5.13.0.

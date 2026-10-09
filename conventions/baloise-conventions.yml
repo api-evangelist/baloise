@@ -1,0 +1,44 @@
+name: Baloise API Conventions
+generated: '2026-10-09'
+method: derived
+source: openapi/baloise-corellia-contracts-openapi.yml
+note: Derived from the two published OpenAPI specifications (Corellia Contracts 0.1.0, OIM 0.8). Neither has a hosted server or published docs beyond the GitHub READMEs.
+api_governance:
+  ruleset: https://github.com/baloise-incubator/spectral-ruleset
+  note: Baloise publishes a Spectral ruleset for the Zalando RESTful API Guidelines.
+authentication:
+  style: none declared
+  note: Neither spec declares securitySchemes.
+request_tracing:
+  headers:
+  - name: X-Event-ID
+    description: Unique identifier per event (request)
+  - name: X-Caller-Name
+    description: Identifying the sender of this event (request)
+  applies_to: Corellia uploadContract, uploadDocument, cancelContract
+idempotency:
+  coverage: none
+  note: X-Event-ID is described only as a unique identifier per request; the spec does not state that it deduplicates replays, so no replay protection is claimed.
+pagination:
+  style: limit
+  params: [limit, filter]
+  applies_to: OIM api.calls_phs.vm_list, api.calls_phs.pgsql_list
+versioning:
+  style: path
+  examples: [/contracts/v2, /v0.8]
+  version_endpoint: version (GET /contracts/v2/version, "Callable way of retrieving current API version (following semver)")
+errors:
+  envelope: ErrorResponse (Corellia 400); 503 "Technical issue on server side, please retry later"
+reversibility:
+  status: documented
+  surfaces:
+  - write: uploadContract
+    reversal: cancelContract
+    window: null
+    note: Spec documents POST /contracts/v2/cancellations ("cancel a contract"); no window stated.
+  - write: api.calls_phs.vm_post
+    reversal: api.calls_phs.vm_delete
+    window: null
+  - write: api.calls_phs.pgsql_post
+    reversal: api.calls_phs.pgsql_delete
+    window: null

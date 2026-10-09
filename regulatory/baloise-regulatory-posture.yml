@@ -1,0 +1,89 @@
+generated: '2026-10-09'
+method: searched
+probe: true
+source: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/privacy-policy.html
+scope_note: >-
+  The pre-flight dossier had no legal_pages and probed no owned host. www.baloise.com answers 406 to curl and
+  redirects (in a browser) to the Helvetia Baloise Group corporate site after the Helvetia-Baloise merger;
+  www.baloise.ch redirects to helvetia.com, which returned 504. The only legal page read is the privacy policy of the
+  Helvetia Baloise corporate landing page (controller: Helvetia Baloise Holding Ltd), which names a "Baloise Data
+  Protection Unit" and a "Baloise Data Protection Officer". It covers website visitors (investors and media), NOT
+  the Baloise open-source GitHub work or any API. Signals below therefore describe the successor group's website
+  privacy posture, not an API-product posture.
+signals:
+  data_subject_request:
+    url: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/privacy-policy.html
+    section: Your rights
+    channel: datenschutz@baloise.ch (Baloise Data Protection Unit); datenschutz@helvetia.com (Helvetia Insurance Data Protection)
+    rights_named: [access, rectification, erasure, portability, withdrawal of consent, objection, human review of automated individual decisions, complaint to supervisory authority]
+    evidence:
+    - source: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/privacy-policy.html
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "You may request that the data provided by you be released or transmitted in a commonly used electronic form to another controller, provided that the processing is carried out by means of automated processing or you have consented to the processing;"
+    - source: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/privacy-policy.html
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "You have the right to express your point of view in the case of automated individual decisions and to request that the decision be reviewed by a natural person;"
+    - source: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/privacy-policy.html
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "In order for us to be able to rule out misuse, we must confirm your identity (e.g. with a copy of your ID, if identification is not possible via another method)."
+    note: >-
+      A full data-subject-rights section (access, correction, erasure, portability, objection, consent withdrawal,
+      human review of automated decisions) with named written/email channels and identity verification. No response
+      SLA is stated. EU/EEA visitors are pointed to an Art. 27 GDPR contact, including Baloise Life (Liechtenstein) AG.
+  data_residency:
+    url: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/privacy-policy.html
+    section: Transfers of personal data abroad
+    evidence:
+    - source: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/privacy-policy.html
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "Your data may therefore be processed worldwide, including outside of Switzerland, the EU or the European Economic Area (i.e. including in third countries such as the USA)."
+    note: >-
+      This is a disclosure that NO residency is guaranteed: data may be processed worldwide, including in the USA,
+      with contractual safeguards and steps such as pseudonymisation after a risk assessment. No region pinning is offered.
+  subprocessors:
+    url: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/privacy-policy.html
+    section: Collaboration with processors
+    evidence:
+    - source: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/privacy-policy.html
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "Like every major company, we also use external domestic and foreign service providers to execute our business activities (e.g. for IT, logistics, telecommunications, sales and marketing)."
+    note: >-
+      Processor use is disclosed by category only (IT, logistics, telecommunications, sales and marketing). The page
+      publishes no named subprocessor list and no change-notification mechanism.
+  data_retention:
+    url: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/privacy-policy.html
+    section: Erasure of data and retention periods
+    evidence:
+    - source: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/privacy-policy.html
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "Your data will only be stored for as long as is necessary to achieve the aforementioned purposes and we are legally or contractually obliged to retain it."
+    - source: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/privacy-policy.html
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "We generally retain information relating to the processing of data subjects’ requests for three years."
+    note: >-
+      Retention is purpose-bound, with no fixed periods for general data. The one concrete period is three years for
+      records of data-subject requests. Data is erased or anonymised once it is no longer needed.
+  accessibility_conformance:
+    url: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/accessibility-statement.html
+    section: Accessibility Statement
+    standard: WCAG 2.1 AA (target, partial conformance)
+    evidence:
+    - source: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/accessibility-statement.html
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "Helvetia Baloise strives to make its website fully accessible in accordance with the Web Content Accessibility Guidelines WCAG 2.1 at the AA conformance level. This accessibility statement applies to the website www.helvetia-baloise.com."
+    - source: https://www.helvetia-baloise.com/corporate/hb/en/home/about-us/contact/accessibility-statement.html
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "Our goal is therefore to make this website nearly fully compliant with WCAG 2.1 at conformance level AA. Isolated areas of incompatibility with WCAG 2.1 conformance level AA are being dealt with on an ongoing basis."
+    note: >-
+      A published accessibility statement that targets WCAG 2.1 AA for www.helvetia-baloise.com, with a channel for
+      reporting accessibility issues. It is an aim plus an admission of partial conformance, not a claim of full
+      conformance or an audit result, and it covers only the corporate website.

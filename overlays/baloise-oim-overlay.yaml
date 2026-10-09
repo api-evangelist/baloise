@@ -1,0 +1,38 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist overlay for Baloise OIM API
+  version: 1.0.0
+extends: ../openapi/_original/baloise-oim-openapi.yml
+x-generated: '2026-10-09'
+x-method: generated
+x-source: openapi/baloise-oim-openapi.yml
+x-rationale: >-
+  Adds provenance, the source repository and candidate MCP tool names. Only the relative
+  /v0.8 server is published and no security scheme is declared, so none is added.
+  The original contract is not mutated.
+actions:
+- target: $.info
+  update:
+    x-provider: baloise
+    x-source-repository: https://github.com/baloise/oim-api
+    x-status: work in progress (per repository README)
+    x-hosting-note: Only a relative server (/v0.8) is published; there is no public host.
+- target: $
+  update:
+    externalDocs:
+      description: OIM API repository
+      url: https://github.com/baloise/oim-api
+- target: $.paths['/vm'].post
+  update:
+    x-agent-hint: Returns an order id; poll api.calls_phs.order_get on /order/{id} for status.
+    x-mcp-tool: request_vm
+- target: $.paths['/dbpg'].post
+  update:
+    x-agent-hint: Accepted asynchronously (202); track via /order/{id}.
+    x-mcp-tool: request_postgres_database
+- target: $.paths['/order/{id}'].get
+  update:
+    x-mcp-tool: get_order_status
+- target: $.paths['/order/{id}/details'].get
+  update:
+    x-mcp-tool: get_order_details

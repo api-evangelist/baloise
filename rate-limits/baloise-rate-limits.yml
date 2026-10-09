@@ -1,0 +1,6 @@
+name: Baloise Rate Limits
+generated: '2026-10-09'
+method: none
+limit_count: 0
+limits: []
+note: No rate limits are documented in the Corellia or OIM specifications or their GitHub READMEs; neither API has a public hosted endpoint.

@@ -1,0 +1,469 @@
+{
+  "@context": {
+    "@vocab": "https://baloise.example/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "baloise": "https://baloise.example/schema#",
+    "Version": "baloise:Version",
+    "value": {
+      "@id": "baloise:value",
+      "@type": "xsd:string"
+    },
+    "ErrorResponse": "baloise:ErrorResponse",
+    "errorCause": {
+      "@id": "baloise:errorCause",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "baloise:message",
+      "@type": "xsd:string"
+    },
+    "detailMessages": {
+      "@id": "baloise:detailMessages",
+      "@container": "@list"
+    },
+    "FileHandle": "baloise:FileHandle",
+    "handle": {
+      "@id": "baloise:handle",
+      "@type": "xsd:string"
+    },
+    "Document": "baloise:Document",
+    "data": {
+      "@id": "baloise:data",
+      "@container": "@list"
+    },
+    "contractId": {
+      "@id": "baloise:contractId",
+      "@type": "xsd:string"
+    },
+    "mediaType": {
+      "@id": "baloise:mediaType",
+      "@type": "xsd:string"
+    },
+    "fileName": {
+      "@id": "baloise:fileName",
+      "@type": "xsd:string"
+    },
+    "documentType": {
+      "@id": "baloise:documentType",
+      "@type": "xsd:string"
+    },
+    "ContractReference": "baloise:ContractReference",
+    "reference": {
+      "@id": "baloise:reference",
+      "@type": "xsd:string"
+    },
+    "Action": "baloise:Action",
+    "type": {
+      "@id": "baloise:type",
+      "@type": "xsd:integer"
+    },
+    "reason": {
+      "@id": "baloise:reason",
+      "@type": "xsd:integer"
+    },
+    "effective": {
+      "@id": "baloise:effective",
+      "@type": "xsd:date"
+    },
+    "Cancellation": "baloise:Cancellation",
+    "identifier": {
+      "@id": "baloise:identifier",
+      "@type": "@id"
+    },
+    "action": {
+      "@id": "baloise:action",
+      "@type": "@id"
+    },
+    "Identifier": "baloise:Identifier",
+    "id": {
+      "@id": "baloise:id",
+      "@type": "xsd:string"
+    },
+    "Address": "baloise:Address",
+    "sequentialAddressNumber": {
+      "@id": "baloise:sequentialAddressNumber",
+      "@type": "xsd:integer"
+    },
+    "street": {
+      "@id": "baloise:street",
+      "@type": "xsd:string"
+    },
+    "houseNumber": {
+      "@id": "baloise:houseNumber",
+      "@type": "xsd:string"
+    },
+    "zipCode": {
+      "@id": "baloise:zipCode",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "baloise:city",
+      "@type": "xsd:string"
+    },
+    "Agent": "baloise:Agent",
+    "agentNumber": {
+      "@id": "baloise:agentNumber",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "baloise:email",
+      "@type": "xsd:string"
+    },
+    "Company": "baloise:Company",
+    "name": {
+      "@id": "baloise:name",
+      "@type": "xsd:string"
+    },
+    "uidNumber": {
+      "@id": "baloise:uidNumber",
+      "@type": "xsd:string"
+    },
+    "legalForm": {
+      "@id": "baloise:legalForm",
+      "@type": "xsd:string"
+    },
+    "contactSalutation": {
+      "@id": "baloise:contactSalutation",
+      "@type": "xsd:string"
+    },
+    "contactLastName": {
+      "@id": "baloise:contactLastName",
+      "@type": "xsd:string"
+    },
+    "contactFirstName": {
+      "@id": "baloise:contactFirstName",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "baloise:address",
+      "@type": "@id"
+    },
+    "partnerNr": {
+      "@id": "baloise:partnerNr",
+      "@type": "xsd:integer"
+    },
+    "Contract": "baloise:Contract",
+    "creationDate": {
+      "@id": "baloise:creationDate",
+      "@type": "xsd:date"
+    },
+    "startDate": {
+      "@id": "baloise:startDate",
+      "@type": "xsd:date"
+    },
+    "endDate": {
+      "@id": "baloise:endDate",
+      "@type": "xsd:date"
+    },
+    "totalNetPrice": {
+      "@id": "baloise:totalNetPrice",
+      "@type": "@id"
+    },
+    "roles": {
+      "@id": "baloise:roles",
+      "@container": "@list"
+    },
+    "product": {
+      "@id": "baloise:product",
+      "@type": "@id"
+    },
+    "agent": {
+      "@id": "baloise:agent",
+      "@type": "@id"
+    },
+    "fileHandles": {
+      "@id": "baloise:fileHandles",
+      "@container": "@list"
+    },
+    "stampTaxCode": {
+      "@id": "baloise:stampTaxCode",
+      "@type": "xsd:integer"
+    },
+    "termsOfService": {
+      "@id": "baloise:termsOfService",
+      "@type": "@id"
+    },
+    "payment": {
+      "@id": "baloise:payment",
+      "@type": "@id"
+    },
+    "Coverable": "baloise:Coverable",
+    "code": {
+      "@id": "baloise:code",
+      "@type": "xsd:integer"
+    },
+    "riskLocation": {
+      "@id": "baloise:riskLocation",
+      "@type": "@id"
+    },
+    "coverages": {
+      "@id": "baloise:coverages",
+      "@container": "@list"
+    },
+    "Coverage": "baloise:Coverage",
+    "premium": {
+      "@id": "baloise:premium",
+      "@type": "@id"
+    },
+    "deductible": {
+      "@id": "baloise:deductible",
+      "@type": "@id"
+    },
+    "sumInsured": {
+      "@id": "baloise:sumInsured",
+      "@type": "@id"
+    },
+    "measurandType": {
+      "@id": "baloise:measurandType",
+      "@type": "xsd:integer"
+    },
+    "measurandValue": {
+      "@id": "baloise:measurandValue",
+      "@type": "@id"
+    },
+    "discountType": {
+      "@id": "baloise:discountType",
+      "@type": "xsd:integer"
+    },
+    "discountValue": {
+      "@id": "baloise:discountValue",
+      "@type": "@id"
+    },
+    "extraChargeType": {
+      "@id": "baloise:extraChargeType",
+      "@type": "xsd:integer"
+    },
+    "extraChargeValue": {
+      "@id": "baloise:extraChargeValue",
+      "@type": "@id"
+    },
+    "MonetaryAmount": "baloise:MonetaryAmount",
+    "amount": {
+      "@id": "baloise:amount",
+      "@type": "xsd:decimal"
+    },
+    "Payment": "baloise:Payment",
+    "recurringType": {
+      "@id": "baloise:recurringType",
+      "@type": "xsd:integer"
+    },
+    "dueDate": {
+      "@id": "baloise:dueDate",
+      "@type": "xsd:date"
+    },
+    "Person": "baloise:Person",
+    "salutation": {
+      "@id": "baloise:salutation",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "baloise:lastName",
+      "@type": "xsd:string"
+    },
+    "firstName": {
+      "@id": "baloise:firstName",
+      "@type": "xsd:string"
+    },
+    "dateOfBirth": {
+      "@id": "baloise:dateOfBirth",
+      "@type": "xsd:date"
+    },
+    "phoneNumber": {
+      "@id": "baloise:phoneNumber",
+      "@type": "@id"
+    },
+    "emailAddress": {
+      "@id": "baloise:emailAddress",
+      "@type": "xsd:string"
+    },
+    "language": {
+      "@id": "baloise:language",
+      "@type": "xsd:string"
+    },
+    "PhoneNumber": "baloise:PhoneNumber",
+    "countryCode": {
+      "@id": "baloise:countryCode",
+      "@type": "xsd:string"
+    },
+    "Product": "baloise:Product",
+    "pricingMonthYear": {
+      "@id": "baloise:pricingMonthYear",
+      "@type": "xsd:string"
+    },
+    "coverables": {
+      "@id": "baloise:coverables",
+      "@container": "@list"
+    },
+    "Role": "baloise:Role",
+    "role": {
+      "@id": "baloise:role",
+      "@type": "xsd:string"
+    },
+    "person": {
+      "@id": "baloise:person",
+      "@type": "@id"
+    },
+    "company": {
+      "@id": "baloise:company",
+      "@type": "@id"
+    },
+    "TermsOfService": "baloise:TermsOfService",
+    "edition": {
+      "@id": "baloise:edition",
+      "@type": "xsd:integer"
+    },
+    "orderdatabase": "baloise:orderdatabase",
+    "database-name": {
+      "@id": "baloise:database-name",
+      "@type": "xsd:string"
+    },
+    "database-user": {
+      "@id": "baloise:database-user",
+      "@type": "xsd:string"
+    },
+    "database-rolls": {
+      "@id": "baloise:database-rolls",
+      "@type": "xsd:string"
+    },
+    "database-platform": {
+      "@id": "baloise:database-platform",
+      "@type": "xsd:string"
+    },
+    "requester-id": {
+      "@id": "baloise:requester-id",
+      "@type": "@id"
+    },
+    "requester-mail": {
+      "@id": "baloise:requester-mail",
+      "@type": "@id"
+    },
+    "database-stuff": {
+      "@id": "baloise:database-stuff",
+      "@type": "@id"
+    },
+    "items": {
+      "@id": "baloise:items",
+      "@container": "@list"
+    },
+    "listdatabase": "baloise:listdatabase",
+    "filter": {
+      "@id": "baloise:filter",
+      "@type": "xsd:string"
+    },
+    "limit": {
+      "@id": "baloise:limit",
+      "@type": "xsd:integer"
+    },
+    "order": "baloise:order",
+    "ordercommon": "baloise:ordercommon",
+    "allOf": {
+      "@id": "baloise:allOf"
+    },
+    "owner-id": {
+      "@id": "baloise:owner-id",
+      "@type": "@id"
+    },
+    "owner-mail": {
+      "@id": "baloise:owner-mail",
+      "@type": "@id"
+    },
+    "deputy-id": {
+      "@id": "baloise:deputy-id",
+      "@type": "@id"
+    },
+    "deputy-mail": {
+      "@id": "baloise:deputy-mail",
+      "@type": "@id"
+    },
+    "sbu": {
+      "@id": "baloise:sbu",
+      "@type": "@id"
+    },
+    "dbitem": "baloise:dbitem",
+    "catalog-reference": {
+      "@id": "baloise:catalog-reference"
+    },
+    "size": {
+      "@id": "baloise:size",
+      "@type": "@id"
+    },
+    "metal-category": {
+      "@id": "baloise:metal-category",
+      "@type": "@id"
+    },
+    "environment": {
+      "@id": "baloise:environment",
+      "@type": "@id"
+    },
+    "security-zone": {
+      "@id": "baloise:security-zone",
+      "@type": "@id"
+    },
+    "vmitem": "baloise:vmitem",
+    "application-id": {
+      "@id": "baloise:application-id",
+      "@type": "@id"
+    },
+    "group-permissions": {
+      "@id": "baloise:group-permissions",
+      "@type": "@id"
+    },
+    "od.sbu": "baloise:od.sbu",
+    "db.pg.catalog-reference": "baloise:db.pg.catalog-reference",
+    "vm.lin.catalog-reference": "baloise:vm.lin.catalog-reference",
+    "vm.win.catalog-reference": "baloise:vm.win.catalog-reference",
+    "group-permission": "baloise:group-permission",
+    "ad-group-name": {
+      "@id": "baloise:ad-group-name",
+      "@type": "xsd:string"
+    },
+    "local-group-name": {
+      "@id": "baloise:local-group-name",
+      "@type": "xsd:string"
+    },
+    "JBoss Order": "baloise:JBoss Order",
+    "JBoss Order Item": "baloise:JBoss Order Item",
+    "version": {
+      "@id": "baloise:version",
+      "@type": "@id"
+    },
+    "data-disk": {
+      "@id": "baloise:data-disk",
+      "@type": "@id"
+    },
+    "JBoss Catalog Reference": "baloise:JBoss Catalog Reference",
+    "JBoss Version": "baloise:JBoss Version",
+    "JBoss Size": "baloise:JBoss Size",
+    "VM Order": "baloise:VM Order",
+    "VM Order Item": "baloise:VM Order Item",
+    "VM Role": "baloise:VM Role",
+    "VM Lin Specifics": "baloise:VM Lin Specifics",
+    "VM Win Specifics": "baloise:VM Win Specifics",
+    "VM Size": "baloise:VM Size",
+    "VM Metal Category": "baloise:VM Metal Category",
+    "Linux Data Disk": "baloise:Linux Data Disk",
+    "filesystem": {
+      "@id": "baloise:filesystem",
+      "@type": "xsd:string"
+    },
+    "size-gb": {
+      "@id": "baloise:size-gb",
+      "@type": "xsd:integer"
+    },
+    "Windows Data Disk": "baloise:Windows Data Disk",
+    "Permission Map": "baloise:Permission Map",
+    "SBU": "baloise:SBU",
+    "Environment": "baloise:Environment",
+    "Security Zone": "baloise:Security Zone"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Baloise API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Baloise's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-09) from openapi/baloise-corellia-contracts-openapi.yml, openapi/baloise-oim-openapi.yml.",
+  "dcterms:created": "2026-10-09",
+  "dcterms:source": [
+    "openapi/baloise-corellia-contracts-openapi.yml",
+    "openapi/baloise-oim-openapi.yml"
+  ]
+}

@@ -1,0 +1,35 @@
+name: GitOps CLI
+generated: '2026-10-09'
+method: searched
+source: https://baloise.github.io/gitopscli/setup/
+docs: https://baloise.github.io/gitopscli/
+repository: https://github.com/baloise/gitopscli
+description: GitOps CLI is a command line interface (CLI) to perform operations on GitOps managed infrastructure repositories, including updates in YAML files. It is a Baloise open-source tool and is not a client for the Corellia or OIM APIs.
+note: Supports BitBucket Server, GitHub, GitLab, and Azure DevOps as Git providers.
+install:
+- method: docker
+  command: docker pull baloise/gitopscli
+- method: uvx
+  command: uvx https://github.com/baloise/gitopscli.git --help
+- method: source
+  command: git clone https://github.com/baloise/gitopscli.git && cd gitopscli/ && uv sync --locked --all-groups
+commands:
+- name: deploy
+  docs: https://baloise.github.io/gitopscli/commands/deploy/
+  description: Update YAML values in config repository to e.g. deploy an application.
+- name: add-pr-comment
+  docs: https://baloise.github.io/gitopscli/commands/add-pr-comment/
+  description: Add pull request comments.
+- name: create-preview
+  docs: https://baloise.github.io/gitopscli/commands/create-preview/
+- name: create-pr-preview
+  docs: https://baloise.github.io/gitopscli/commands/create-pr-preview/
+- name: delete-preview
+  docs: https://baloise.github.io/gitopscli/commands/delete-preview/
+- name: delete-pr-preview
+  docs: https://baloise.github.io/gitopscli/commands/delete-pr-preview/
+- name: sync-apps
+  docs: https://baloise.github.io/gitopscli/commands/sync-apps/
+  description: Update root config repository with all apps from child config repositories.
+- name: version
+  docs: https://baloise.github.io/gitopscli/commands/version/

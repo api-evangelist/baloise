@@ -1,0 +1,11 @@
+name: Baloise Plans
+generated: '2026-10-09'
+method: none
+plan_count: 0
+plans: []
+audience: unclear
+pricing_basis: none
+published: false
+delivery:
+  delivery: unclear
+note: Baloise publishes open API specifications (Corellia, OIM) on GitHub with no hosted service and no API pricing or plans.

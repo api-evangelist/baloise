@@ -1,0 +1,30 @@
+openapi: 3.2.0
+info:
+  title: Baloise J Boss API
+  version: '0.8'
+  description: 'Operations tagged JBoss across 2 of this provider''s published API definitions: oim-api-v0.8.yaml, baloise-oim-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: /v0.8
+tags:
+- name: JBoss
+paths:
+  /jb:
+    post:
+      summary: Requests new jboss server
+      description: returns order id, optionally accepts customer-reference
+      operationId: api.calls_phs.jb_post
+      tags:
+      - JBoss
+      responses:
+        201:
+          description: order response
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#components/schemas/JBoss Order'
+    servers:
+    - url: /v0.8
+x-refined-from:
+- oim-api-v0.8.yaml
+- baloise-oim-openapi.yml

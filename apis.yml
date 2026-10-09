@@ -1,23 +1,299 @@
 aid: baloise
+
 name: Baloise
-description: 'Baloise is a company surfaced via the API Evangelist harvest backlog (source: spectral-ruleset-web)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: Baloise Group is a Basel, Switzerland-based insurance and pension group (GitHub org 'Baloise Group', Aeschengraben 21, 4002 Basel)
+  that publishes open-source work through its baloise and baloise-incubator GitHub organizations. Its API-related open source includes a custom
+  Spectral API linter ruleset for the Zalando RESTful API Guidelines, the Corellia B2B Web-API specification for insurance contract data, the
+  GitOps CLI and the Baloise Design System. Its former website, www.baloise.com, now redirects to the Helvetia Baloise Group corporate site (helvetia-baloise.com)
+  following the Helvetia-Baloise merger.
+
 url: https://raw.githubusercontent.com/api-evangelist/baloise/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:spectral-ruleset-web
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-09 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-09'
+
 modified: '2026-10-09'
+
 tags:
 - Company
-apis: []
+- Insurance
+- Financial Services
+- Switzerland
+- Open Source
+- API Governance
+- Spectral
+- Linting
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
+image: https://avatars.githubusercontent.com/u/4548858?v=4
+
 common:
+- type: Vendors
+  url: vendors/baloise-vendors.yml
+- type: AgenticAccess
+  url: agentic-access/baloise-agentic-access.yml
+- type: Spectral
+  url: rules/baloise-rules.yml
+- type: JSONLD
+  url: json-ld/baloise-context.jsonld
+- type: Vocabulary
+  url: vocabulary/baloise-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DataModel
+  url: data-model/baloise-data-model.yml
+- type: Components
+  url: components/baloise-components.yml
+- type: CLI
+  url: cli/baloise-cli.yml
+- type: Conventions
+  url: conventions/baloise-conventions.yml
+- type: Lifecycle
+  url: lifecycle/baloise-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/baloise-problem-types.yml
+- type: Conformance
+  url: conformance/baloise-conformance.yml
+- type: Overlay
+  url: overlays/baloise-corellia-contracts-overlay.yaml
+- type: Hosts
+  url: hosts/baloise-hosts.yml
+- type: SDKs
+  url: packages/baloise-packages.yml
+- type: Packages
+  url: packages/baloise-packages.yml
 - type: Website
   url: https://github.com/baloise-incubator/spectral-ruleset
+- type: GitHubOrganization
+  url: https://github.com/baloise
+- type: GitHubOrganization
+  url: https://github.com/baloise-incubator
+- type: GitHubRepository
+  name: Spectral Ruleset
+  url: https://github.com/baloise-incubator/spectral-ruleset
+- type: OpenSource
+  url: https://baloise.github.io/open-source/
+
+apis:
+- aid: baloise:baloise-contracts-api
+  name: Baloise Contracts API
+  description: The contracts API from Baloise — 2 operation(s) for contracts.
+  humanURL: https://github.com/baloise/corellia
+  tags:
+  - contracts
+  properties:
+  - type: OpenAPI
+    url: openapi/baloise-contracts-api-openapi.yml
+  - type: Swagger
+    url: https://raw.githubusercontent.com/baloise/corellia/master/docs/swagger.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/corellia
+  - type: JSONSchema
+    url: json-schema/baloise-contract-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-document-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-cancellation-schema.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/oim-api
+- aid: baloise:baloise-db-api
+  name: Baloise DB API
+  description: The DB API from Baloise — 2 operation(s) for db.
+  humanURL: https://github.com/baloise/corellia
+  tags:
+  - DB
+  properties:
+  - type: OpenAPI
+    url: openapi/baloise-db-api-openapi.yml
+  - type: Swagger
+    url: https://raw.githubusercontent.com/baloise/corellia/master/docs/swagger.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/corellia
+  - type: JSONSchema
+    url: json-schema/baloise-contract-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-document-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-cancellation-schema.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/oim-api
+- aid: baloise:baloise-documents-api
+  name: Baloise Documents API
+  description: The documents API from Baloise — 1 operation(s) for documents.
+  humanURL: https://github.com/baloise/corellia
+  tags:
+  - documents
+  properties:
+  - type: OpenAPI
+    url: openapi/baloise-documents-api-openapi.yml
+  - type: Swagger
+    url: https://raw.githubusercontent.com/baloise/corellia/master/docs/swagger.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/corellia
+  - type: JSONSchema
+    url: json-schema/baloise-contract-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-document-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-cancellation-schema.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/oim-api
+- aid: baloise:baloise-jboss-api
+  name: Baloise J Boss API
+  description: The JBoss API from Baloise — 1 operation(s) for jboss.
+  humanURL: https://github.com/baloise/corellia
+  tags:
+  - JBoss
+  properties:
+  - type: OpenAPI
+    url: openapi/baloise-jboss-api-openapi.yml
+  - type: Swagger
+    url: https://raw.githubusercontent.com/baloise/corellia/master/docs/swagger.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/corellia
+  - type: JSONSchema
+    url: json-schema/baloise-contract-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-document-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-cancellation-schema.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/oim-api
+- aid: baloise:baloise-middlewares-api
+  name: Baloise Middlewares API
+  description: The Middlewares API from Baloise — 1 operation(s) for middlewares.
+  humanURL: https://github.com/baloise/corellia
+  tags:
+  - Middlewares
+  properties:
+  - type: OpenAPI
+    url: openapi/baloise-middlewares-api-openapi.yml
+  - type: Swagger
+    url: https://raw.githubusercontent.com/baloise/corellia/master/docs/swagger.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/corellia
+  - type: JSONSchema
+    url: json-schema/baloise-contract-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-document-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-cancellation-schema.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/oim-api
+- aid: baloise:baloise-orders-api
+  name: Baloise Orders API
+  description: The orders API from Baloise — 2 operation(s) for orders.
+  humanURL: https://github.com/baloise/corellia
+  tags:
+  - orders
+  properties:
+  - type: OpenAPI
+    url: openapi/baloise-orders-api-openapi.yml
+  - type: Swagger
+    url: https://raw.githubusercontent.com/baloise/corellia/master/docs/swagger.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/corellia
+  - type: JSONSchema
+    url: json-schema/baloise-contract-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-document-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-cancellation-schema.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/oim-api
+- aid: baloise:baloise-pgsql-api
+  name: Baloise Pgsql API
+  description: The pgsql API from Baloise — 2 operation(s) for pgsql.
+  humanURL: https://github.com/baloise/corellia
+  tags:
+  - pgsql
+  properties:
+  - type: OpenAPI
+    url: openapi/baloise-pgsql-api-openapi.yml
+  - type: Swagger
+    url: https://raw.githubusercontent.com/baloise/corellia/master/docs/swagger.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/corellia
+  - type: JSONSchema
+    url: json-schema/baloise-contract-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-document-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-cancellation-schema.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/oim-api
+- aid: baloise:baloise-version-api
+  name: Baloise Version API
+  description: The version API from Baloise — 1 operation(s) for version.
+  humanURL: https://github.com/baloise/corellia
+  tags:
+  - version
+  properties:
+  - type: OpenAPI
+    url: openapi/baloise-version-api-openapi.yml
+  - type: Swagger
+    url: https://raw.githubusercontent.com/baloise/corellia/master/docs/swagger.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/corellia
+  - type: JSONSchema
+    url: json-schema/baloise-contract-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-document-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-cancellation-schema.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/oim-api
+- aid: baloise:baloise-vms-api
+  name: Baloise VMs API
+  description: The VMs API from Baloise — 2 operation(s) for vms.
+  humanURL: https://github.com/baloise/corellia
+  tags:
+  - VMs
+  properties:
+  - type: OpenAPI
+    url: openapi/baloise-vms-api-openapi.yml
+  - type: Swagger
+    url: https://raw.githubusercontent.com/baloise/corellia/master/docs/swagger.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/corellia
+  - type: JSONSchema
+    url: json-schema/baloise-contract-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-document-schema.json
+  - type: JSONSchema
+    url: json-schema/baloise-cancellation-schema.json
+  - type: GitHubRepository
+    url: https://github.com/baloise/oim-api
+x-enrichment:
+  date: '2026-10-09'
+  status: enriched
+  artifacts_added: 32
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=anthropic,regulatory=anthropic
+x-coverage:
+  state: covered
+  reason: identity-verified
+  detail: 'Enriched 2026-10-09: website and identity verified (partial) from the provider''s own pages; probed URLs below.'
+  evidence:
+  - url: https://api.github.com/orgs/baloise
+    status: 200
+  - url: https://www.baloise.com/
+    status: 406
+  - url: https://www.baloise.ch
+    status: null
+  - url: https://github.com/baloise
+    status: 200

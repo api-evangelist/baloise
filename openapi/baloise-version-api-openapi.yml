@@ -1,0 +1,66 @@
+openapi: 3.2.0
+info:
+  title: Baloise Version API
+  version: 0.1.0
+  contact:
+    email: Group.CH_Open-Source@baloise.ch
+  license:
+    name: Apache License 2.0
+    url: https://github.com/baloise/corellia/blob/master/LICENSE.txt
+  description: 'Operations tagged version across 2 of this provider''s published API definitions: corellia-openapi.json, baloise-corellia-contracts-openapi.yml. Each path carries the servers of the definition it was published in.'
+tags:
+- name: Version
+paths:
+  /contracts/v2/version:
+    get:
+      tags:
+      - Version
+      summary: Callable way of retrieving current API version (following semver)
+      description: Endpoint to retrieve the current API version (following semver). Can be compared to the URI version. Can be used for testing purposes.
+      operationId: version
+      responses:
+        default:
+          description: Version identifier
+          content:
+            application/json; charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Version'
+        '503':
+          description: Technical issue on server side, please retry later
+          content:
+            application/json; charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ErrorResponse:
+      required:
+      - errorCause
+      - message
+      type: object
+      properties:
+        errorCause:
+          type: string
+          enum:
+          - httpClientError
+          - httpClientErrorInputValidation
+          - httpServerError
+        message:
+          type: string
+          description: Information about the error
+        detailMessages:
+          type: array
+          description: In case of e.g. validation error, each validation error is represented by one detail message
+          items:
+            type: string
+    Version:
+      required:
+      - value
+      type: object
+      properties:
+        value:
+          type: string
+          description: Version identifier of the current API definition
+x-refined-from:
+- corellia-openapi.json
+- baloise-corellia-contracts-openapi.yml

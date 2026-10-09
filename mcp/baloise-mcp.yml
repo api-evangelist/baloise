@@ -1,0 +1,91 @@
+generated: '2026-10-09'
+method: derived
+status: candidate
+source: openapi/baloise-corellia-contracts-openapi.yml, openapi/baloise-oim-openapi.yml
+deployment:
+  mode: none
+  auth: unknown
+  verified: derived
+search_result:
+  official_hosted_server: none
+  searched:
+  - query: Baloise MCP server "Model Context Protocol" github baloise
+    result: no Baloise-published or Baloise-related MCP server found
+  finding: >-
+    Baloise publishes no MCP server (hosted or stdio). Neither OpenAPI contract declares a public
+    host (Corellia has no servers[]; OIM only a relative /v0.8), so there is no endpoint any MCP
+    client could reach. The tools below are a CANDIDATE list derived 1:1 from the published
+    operationIds so an agent surface could be generated; Baloise does not publish them.
+server:
+  name: baloise
+  transport: none
+  url: null
+tools:
+- name: get_contracts_api_version
+  description: Retrieve the current Corellia Contracts API version (semver).
+  source_operation: openapi/baloise-corellia-contracts-openapi.yml#GET /contracts/v2/version
+  operation_id: version
+- name: upload_contract_document
+  description: Upload one document for a contract; returns a file handle to pass to upload_contract. Requires X-Caller-Name and X-Event-ID headers.
+  source_operation: openapi/baloise-corellia-contracts-openapi.yml#POST /contracts/v2/documents
+  operation_id: uploadDocument
+- name: upload_contract
+  description: Upload a contract to the insurer (with document handles from upload_contract_document).
+  source_operation: openapi/baloise-corellia-contracts-openapi.yml#POST /contracts/v2
+  operation_id: uploadContract
+- name: cancel_contract
+  description: Cancel a contract.
+  source_operation: openapi/baloise-corellia-contracts-openapi.yml#POST /contracts/v2/cancellations
+  operation_id: cancelContract
+- name: get_order_status
+  description: Show the status of an OIM order.
+  source_operation: openapi/baloise-oim-openapi.yml#GET /order/{id}
+  operation_id: api.calls_phs.order_get
+- name: get_order_details
+  description: Show the details of an OIM order.
+  source_operation: openapi/baloise-oim-openapi.yml#GET /order/{id}/details
+  operation_id: api.calls_phs.order_get_detail
+- name: list_vms
+  description: List all known VMs (filter, limit).
+  source_operation: openapi/baloise-oim-openapi.yml#GET /vm
+  operation_id: api.calls_phs.vm_list
+- name: request_vm
+  description: Request a new VM; returns an order id.
+  source_operation: openapi/baloise-oim-openapi.yml#POST /vm
+  operation_id: api.calls_phs.vm_post
+- name: get_vm
+  description: Get information on a specific VM.
+  source_operation: openapi/baloise-oim-openapi.yml#GET /vm/{name}
+  operation_id: api.calls_phs.vm_get
+- name: modify_vm
+  description: Modify some modifiable parameters of a VM.
+  source_operation: openapi/baloise-oim-openapi.yml#PATCH /vm/{name}
+  operation_id: api.calls_phs.vm_patch
+- name: delete_vm
+  description: Request removal of a VM.
+  source_operation: openapi/baloise-oim-openapi.yml#DELETE /vm/{name}
+  operation_id: api.calls_phs.vm_delete
+- name: list_postgres_databases
+  description: List all known PostgreSQL databases.
+  source_operation: openapi/baloise-oim-openapi.yml#GET /dbpg
+  operation_id: api.calls_phs.pgsql_list
+- name: request_postgres_database
+  description: Request a new PostgreSQL database.
+  source_operation: openapi/baloise-oim-openapi.yml#POST /dbpg
+  operation_id: api.calls_phs.pgsql_post
+- name: get_postgres_database
+  description: Get information on a specific database.
+  source_operation: openapi/baloise-oim-openapi.yml#GET /dbpg/{dbid}
+  operation_id: api.calls_phs.pgsql_get
+- name: modify_postgres_database
+  description: Modify some modifiable parameters of a database.
+  source_operation: openapi/baloise-oim-openapi.yml#PATCH /dbpg/{dbid}
+  operation_id: api.calls_phs.pgsql_patch
+- name: delete_postgres_database
+  description: Request removal of a database.
+  source_operation: openapi/baloise-oim-openapi.yml#DELETE /dbpg/{dbid}
+  operation_id: api.calls_phs.pgsql_delete
+- name: request_jboss_server
+  description: Request a new JBoss server.
+  source_operation: openapi/baloise-oim-openapi.yml#POST /jb
+  operation_id: api.calls_phs.jb_post

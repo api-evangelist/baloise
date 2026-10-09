@@ -1,0 +1,126 @@
+openapi: 3.2.0
+info:
+  title: Baloise Pgsql API
+  version: '0.8'
+  description: 'Operations tagged pgsql across 2 of this provider''s published API definitions: oim-api-v0.8.yaml, baloise-oim-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: /v0.8
+tags:
+- name: pgsql
+paths:
+  /dbpg:
+    get:
+      summary: Lists all known databases
+      description: Return a list of databases based on given filter
+      operationId: api.calls_phs.pgsql_list
+      tags:
+      - pgsql
+      responses:
+        200:
+          description: Filtered öist of pgsql databases
+        404:
+          description: Response for unknown resource
+      parameters:
+      - name: filter
+        in: query
+        description: Filter to apply to results
+        required: false
+        schema:
+          type: string
+          example: DB*
+          default: .*
+      - name: limit
+        in: query
+        description: The number of items to return
+        required: false
+        schema:
+          type: integer
+          example: 100
+          default: 25
+          maximum: 999
+          minimum: 1
+    post:
+      summary: Requests new database
+      description: returns orderid, optionally accepts customer-reference
+      operationId: api.calls_phs.pgsql_post
+      tags:
+      - pgsql
+      responses:
+        202:
+          description: Resource creation request accepted
+        400:
+          description: Bad request parameters.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/schemas/orderdatabase'
+    servers:
+    - url: /v0.8
+  /dbpg/{dbid}:
+    get:
+      summary: Request information on a specific database
+      description: List details on a given database item
+      operationId: api.calls_phs.pgsql_get
+      tags:
+      - pgsql
+      responses:
+        200:
+          description: List details for a database item
+        404:
+          description: Response for unknown resource
+      parameters:
+      - name: dbid
+        in: path
+        description: database identifier
+        required: true
+        schema:
+          type: string
+          example: DB1
+    patch:
+      summary: Allows the modification SOME modifiable parameter for a database
+      description: The modification workflow is still in discussion with provider.
+      operationId: api.calls_phs.pgsql_patch
+      tags:
+      - pgsql
+      responses:
+        202:
+          description: Update request accepted
+        400:
+          description: Bad request
+        404:
+          description: Response for unknown resource
+        409:
+          description: Conflicting information
+      parameters:
+      - name: dbid
+        in: path
+        required: true
+        schema:
+          type: string
+          example: DB1
+    delete:
+      summary: Requests removal of specified resource
+      description: Remove a database identified by database identifier
+      operationId: api.calls_phs.pgsql_delete
+      tags:
+      - pgsql
+      responses:
+        202:
+          description: Removal request accepted
+        404:
+          description: Response for unknown resource
+      parameters:
+      - name: dbid
+        in: path
+        description: given database identifier to remove
+        required: true
+        schema:
+          type: string
+          example: DB1
+    servers:
+    - url: /v0.8
+x-refined-from:
+- oim-api-v0.8.yaml
+- baloise-oim-openapi.yml

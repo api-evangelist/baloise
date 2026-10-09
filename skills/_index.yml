@@ -1,0 +1,20 @@
+generated: '2026-10-09'
+method: generated
+source: Packaged Agent Skills generated from openapi/baloise-corellia-contracts-openapi.yml and openapi/baloise-oim-openapi.yml; no provider-published skills or AGENTS.md were found. Every operationId verified verbatim.
+skills:
+- file: baloise-submit-insurance-contract.md
+  name: submit-insurance-contract
+  api: openapi/baloise-corellia-contracts-openapi.yml
+  operations: [version, uploadDocument, uploadContract]
+- file: baloise-cancel-insurance-contract.md
+  name: cancel-insurance-contract
+  api: openapi/baloise-corellia-contracts-openapi.yml
+  operations: [cancelContract]
+- file: baloise-provision-vm.md
+  name: provision-vm
+  api: openapi/baloise-oim-openapi.yml
+  operations: [api.calls_phs.vm_post, api.calls_phs.order_get, api.calls_phs.order_get_detail, api.calls_phs.vm_get]
+- file: baloise-provision-postgres-database.md
+  name: provision-postgres-database
+  api: openapi/baloise-oim-openapi.yml
+  operations: [api.calls_phs.pgsql_post, api.calls_phs.order_get, api.calls_phs.pgsql_get, api.calls_phs.pgsql_list]

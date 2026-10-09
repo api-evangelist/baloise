@@ -1,0 +1,15 @@
+name: Baloise Design System
+generated: '2026-10-09'
+method: searched
+source: https://registry.npmjs.org/@baloise/ds-core
+docs: https://design.baloise.dev
+repository: https://github.com/baloise/design-system
+description: The Baloise Design-System is an open source project for styling awesome web applications that follow the Baloise corporate styling guidelines.
+families:
+- family: web-components
+  loader: '@baloise/ds-core'
+  description: Framework-agnostic core web components.
+- family: angular
+  loader: '@baloise/ds-angular'
+- family: react
+  loader: '@baloise/ds-react'
