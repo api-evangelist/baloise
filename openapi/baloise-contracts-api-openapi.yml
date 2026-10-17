@@ -1,13 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Baloise Contracts API
-  version: 0.1.0
+  title: Contracts API
+  description: An API which allows to communicate with SaaS Providers, which produce Contracts for the host of this API
   contact:
     email: Group.CH_Open-Source@baloise.ch
   license:
     name: Apache License 2.0
     url: https://github.com/baloise/corellia/blob/master/LICENSE.txt
-  description: 'Operations tagged contracts across 2 of this provider''s published API definitions: corellia-openapi.json, baloise-corellia-contracts-openapi.yml. Each path carries the servers of the definition it was published in.'
+  version: 0.1.0
 tags:
 - name: Contracts
 paths:
@@ -111,54 +111,78 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    Cancellation:
-      required:
-      - action
-      - identifier
-      type: object
-      properties:
-        identifier:
-          $ref: '#/components/schemas/Identifier'
-        action:
-          $ref: '#/components/schemas/Action'
-    Coverable:
+    Payment:
       required:
       - code
-      - coverages
+      - recurringType
       type: object
       properties:
         code:
           type: integer
-          description: A code uniquely identifying a type of coverable
+          description: A code uniquely identifying the type of payment e.g. invoice or creditcard, Paypal etc.
           format: int32
-        riskLocation:
-          $ref: '#/components/schemas/Address'
-        coverages:
-          maxItems: 99
-          minItems: 1
-          type: array
-          items:
-            $ref: '#/components/schemas/Coverage'
-    TermsOfService:
-      required:
-      - edition
-      - type
-      type: object
-      properties:
-        type:
+        recurringType:
           type: integer
-          description: The type of service terms
+          description: The recurring type code.
           format: int32
-        edition:
-          type: integer
-          description: The edition of the service terms
-          format: int32
+        dueDate:
+          type: string
+          description: The due date for the recurring type
+          format: date
     ContractReference:
       type: object
       properties:
         reference:
           type: string
           description: Under this reference the contract is stored at the insurer
+    Action:
+      required:
+      - reason
+      - type
+      type: object
+      properties:
+        type:
+          type: integer
+          description: The type of the action
+          format: int32
+        reason:
+          type: integer
+          description: The reason for this type
+          format: int32
+        effective:
+          type: string
+          description: The date when this change should be effective
+          format: date
+    Product:
+      required:
+      - code
+      - coverables
+      - pricingMonthYear
+      type: object
+      properties:
+        code:
+          type: integer
+          description: A code uniquely identifying the product
+          format: int32
+        pricingMonthYear:
+          maxLength: 4
+          minLength: 4
+          type: string
+          description: The month/year in which the pricing for the contract was set. Format MMYY
+        coverables:
+          maxItems: 99
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/Coverable'
+    FileHandle:
+      required:
+      - handle
+      type: object
+      properties:
+        handle:
+          type: string
+          description: Reference to an uploaded document. This can be a PDF or a picture (e.g. JPG) of a contract or a purchase receipt.
     ErrorResponse:
       required:
       - errorCause
@@ -179,6 +203,66 @@ components:
           description: In case of e.g. validation error, each validation error is represented by one detail message
           items:
             type: string
+    Coverage:
+      required:
+      - code
+      - premium
+      - sumInsured
+      type: object
+      properties:
+        code:
+          type: integer
+          description: A code uniquely identifying a type of coverage
+          format: int32
+        premium:
+          $ref: '#/components/schemas/MonetaryAmount'
+        deductible:
+          $ref: '#/components/schemas/MonetaryAmount'
+        sumInsured:
+          $ref: '#/components/schemas/MonetaryAmount'
+        measurandType:
+          type: integer
+          format: int32
+        measurandValue:
+          $ref: '#/components/schemas/MonetaryAmount'
+        discountType:
+          type: integer
+          format: int32
+        discountValue:
+          $ref: '#/components/schemas/MonetaryAmount'
+        extraChargeType:
+          type: integer
+          format: int32
+        extraChargeValue:
+          $ref: '#/components/schemas/MonetaryAmount'
+    Address:
+      required:
+      - city
+      - houseNumber
+      - street
+      - zipCode
+      type: object
+      properties:
+        sequentialAddressNumber:
+          type: integer
+          description: The sequential address number within the Baloise internal partner system.
+          format: int32
+        street:
+          maxLength: 35
+          minLength: 0
+          type: string
+        houseNumber:
+          maxLength: 10
+          minLength: 0
+          type: string
+        zipCode:
+          maxLength: 4
+          minLength: 4
+          type: string
+        city:
+          maxLength: 30
+          minLength: 0
+          type: string
     Contract:
       required:
       - action
@@ -239,24 +323,73 @@ components:
           $ref: '#/components/schemas/Identifier'
         payment:
           $ref: '#/components/schemas/Payment'
-    Action:
+    Person:
+      type: object
+      properties:
+        salutation:
+          type: string
+          description: Required when partnerNr not set!
+          enum:
+          - Mr
+          - Mrs
+        lastName:
+          maxLength: 35
+          minLength: 2
+          type: string
+          description: Required when partnerNr not set!
+        firstName:
+          maxLength: 35
+          minLength: 2
+          type: string
+          description: Required when partnerNr not set!
+        dateOfBirth:
+          type: string
+          format: date
+        phoneNumber:
+          $ref: '#/components/schemas/PhoneNumber'
+        emailAddress:
+          maxLength: 70
+          minLength: 2
+          type: string
+          description: A valid email address
+        language:
+          maxLength: 2
+          minLength: 2
+          type: string
+          description: The language for correspondence with the customer. According to ISO 639-1 language codes, only the values 'de', 'fr', 'it' or 'en' are accepted. Required when partnerNr not set!
+        address:
+          $ref: '#/components/schemas/Address'
+        partnerNr:
+          type: integer
+          description: The PartnerNr of the partner.
+          format: int32
+    TermsOfService:
       required:
-      - reason
+      - edition
       - type
       type: object
       properties:
         type:
           type: integer
-          description: The type of the action
+          description: The type of service terms
           format: int32
-        reason:
+        edition:
           type: integer
-          description: The reason for this type
+          description: The edition of the service terms
           format: int32
-        effective:
+    PhoneNumber:
+      required:
+      - phoneNumber
+      type: object
+      properties:
+        countryCode:
           type: string
-          description: The date when this change should be effective
-          format: date
+          description: Country code, default is +41.
+        phoneNumber:
+          maxLength: 20
+          minLength: 5
+          type: string
+          description: Phone number, without the leading zero.
     Company:
       type: object
       properties:
@@ -317,6 +450,48 @@ components:
           type: integer
           description: The PartnerNr of the partner.
           format: int32
+    Coverable:
+      required:
+      - code
+      - coverages
+      type: object
+      properties:
+        code:
+          type: integer
+          description: A code uniquely identifying a type of coverable
+          format: int32
+        riskLocation:
+          $ref: '#/components/schemas/Address'
+        coverages:
+          maxItems: 99
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/Coverage'
+    Role:
+      required:
+      - role
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - insuranceholder
+          - payer
+        person:
+          $ref: '#/components/schemas/Person'
+        company:
+          $ref: '#/components/schemas/Company'
+    Cancellation:
+      required:
+      - action
+      - identifier
+      type: object
+      properties:
+        identifier:
+          $ref: '#/components/schemas/Identifier'
+        action:
+          $ref: '#/components/schemas/Action'
     MonetaryAmount:
       required:
       - amount
@@ -325,46 +500,6 @@ components:
         amount:
           type: number
           description: An amount with two decimal digit like an insured sum or a deductible (e.g. 100,22).
-    FileHandle:
-      required:
-      - handle
-      type: object
-      properties:
-        handle:
-          type: string
-          description: Reference to an uploaded document. This can be a PDF or a picture (e.g. JPG) of a contract or a purchase receipt.
-    Coverage:
-      required:
-      - code
-      - premium
-      - sumInsured
-      type: object
-      properties:
-        code:
-          type: integer
-          description: A code uniquely identifying a type of coverage
-          format: int32
-        premium:
-          $ref: '#/components/schemas/MonetaryAmount'
-        deductible:
-          $ref: '#/components/schemas/MonetaryAmount'
-        sumInsured:
-          $ref: '#/components/schemas/MonetaryAmount'
-        measurandType:
-          type: integer
-          format: int32
-        measurandValue:
-          $ref: '#/components/schemas/MonetaryAmount'
-        discountType:
-          type: integer
-          format: int32
-        discountValue:
-          $ref: '#/components/schemas/MonetaryAmount'
-        extraChargeType:
-          type: integer
-          format: int32
-        extraChargeValue:
-          $ref: '#/components/schemas/MonetaryAmount'
     Agent:
       required:
       - agentNumber
@@ -381,141 +516,6 @@ components:
           type: string
           description: A valid email adress
       description: The agent who induced the contract issuance, usually is eligible for receiving commission
-    Address:
-      required:
-      - city
-      - houseNumber
-      - street
-      - zipCode
-      type: object
-      properties:
-        sequentialAddressNumber:
-          type: integer
-          description: The sequential address number within the Baloise internal partner system.
-          format: int32
-        street:
-          maxLength: 35
-          minLength: 0
-          type: string
-        houseNumber:
-          maxLength: 10
-          minLength: 0
-          type: string
-        zipCode:
-          maxLength: 4
-          minLength: 4
-          type: string
-        city:
-          maxLength: 30
-          minLength: 0
-          type: string
-    Role:
-      required:
-      - role
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - insuranceholder
-          - payer
-        person:
-          $ref: '#/components/schemas/Person'
-        company:
-          $ref: '#/components/schemas/Company'
-    PhoneNumber:
-      required:
-      - phoneNumber
-      type: object
-      properties:
-        countryCode:
-          type: string
-          description: Country code, default is +41.
-        phoneNumber:
-          maxLength: 20
-          minLength: 5
-          type: string
-          description: Phone number, without the leading zero.
-    Product:
-      required:
-      - code
-      - coverables
-      - pricingMonthYear
-      type: object
-      properties:
-        code:
-          type: integer
-          description: A code uniquely identifying the product
-          format: int32
-        pricingMonthYear:
-          maxLength: 4
-          minLength: 4
-          type: string
-          description: The month/year in which the pricing for the contract was set. Format MMYY
-        coverables:
-          maxItems: 99
-          minItems: 1
-          type: array
-          items:
-            $ref: '#/components/schemas/Coverable'
-    Payment:
-      required:
-      - code
-      - recurringType
-      type: object
-      properties:
-        code:
-          type: integer
-          description: A code uniquely identifying the type of payment e.g. invoice or creditcard, Paypal etc.
-          format: int32
-        recurringType:
-          type: integer
-          description: The recurring type code.
-          format: int32
-        dueDate:
-          type: string
-          description: The due date for the recurring type
-          format: date
-    Person:
-      type: object
-      properties:
-        salutation:
-          type: string
-          description: Required when partnerNr not set!
-          enum:
-          - Mr
-          - Mrs
-        lastName:
-          maxLength: 35
-          minLength: 2
-          type: string
-          description: Required when partnerNr not set!
-        firstName:
-          maxLength: 35
-          minLength: 2
-          type: string
-          description: Required when partnerNr not set!
-        dateOfBirth:
-          type: string
-          format: date
-        phoneNumber:
-          $ref: '#/components/schemas/PhoneNumber'
-        emailAddress:
-          maxLength: 70
-          minLength: 2
-          type: string
-          description: A valid email address
-        language:
-          maxLength: 2
-          minLength: 2
-          type: string
-          description: The language for correspondence with the customer. According to ISO 639-1 language codes, only the values 'de', 'fr', 'it' or 'en' are accepted. Required when partnerNr not set!
-        address:
-          $ref: '#/components/schemas/Address'
-        partnerNr:
-          type: integer
-          description: The PartnerNr of the partner.
-          format: int32
     Identifier:
       required:
       - id
@@ -531,6 +531,3 @@ components:
           enum:
           - INT
           - EXT
-x-refined-from:
-- corellia-openapi.json
-- baloise-corellia-contracts-openapi.yml

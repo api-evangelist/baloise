@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Baloise VMs API
+  title: Baloise OIM VMs API
   version: '0.8'
-  description: 'Operations tagged VMs across 2 of this provider''s published API definitions: oim-api-v0.8.yaml, baloise-oim-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: /v0.8
 tags:
@@ -54,8 +53,6 @@ paths:
           application/json:
             schema:
               $ref: '#components/schemas/VM Order'
-    servers:
-    - url: /v0.8
   /vm/{name}:
     get:
       summary: Request information on a specific VM
@@ -115,8 +112,3 @@ paths:
         schema:
           type: string
           example: vmbal2021
-    servers:
-    - url: /v0.8
-x-refined-from:
-- oim-api-v0.8.yaml
-- baloise-oim-openapi.yml

@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Baloise Middlewares API
+  title: Baloise OIM Middlewares API
   version: '0.8'
-  description: 'Operations tagged Middlewares across 2 of this provider''s published API definitions: oim-api-v0.8.yaml, baloise-oim-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: /v0.8
 tags:
@@ -23,8 +22,3 @@ paths:
           application/json:
             schema:
               $ref: '#components/schemas/JBoss Order'
-    servers:
-    - url: /v0.8
-x-refined-from:
-- oim-api-v0.8.yaml
-- baloise-oim-openapi.yml

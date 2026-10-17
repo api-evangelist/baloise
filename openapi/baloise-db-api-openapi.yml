@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Baloise DB API
+  title: Baloise OIM DB API
   version: '0.8'
-  description: 'Operations tagged DB across 2 of this provider''s published API definitions: oim-api-v0.8.yaml, baloise-oim-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: /v0.8
 tags:
@@ -17,7 +16,7 @@ paths:
       - DB
       responses:
         200:
-          description: Filtered öist of pgsql databases
+          description: Filtered Ã¶ist of pgsql databases
         404:
           description: Response for unknown resource
       parameters:
@@ -56,8 +55,6 @@ paths:
           application/json:
             schema:
               $ref: '#components/schemas/orderdatabase'
-    servers:
-    - url: /v0.8
   /dbpg/{dbid}:
     get:
       summary: Request information on a specific database
@@ -119,8 +116,3 @@ paths:
         schema:
           type: string
           example: DB1
-    servers:
-    - url: /v0.8
-x-refined-from:
-- oim-api-v0.8.yaml
-- baloise-oim-openapi.yml

@@ -1,13 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Baloise Version API
-  version: 0.1.0
+  title: Contracts Version API
+  description: An API which allows to communicate with SaaS Providers, which produce Contracts for the host of this API
   contact:
     email: Group.CH_Open-Source@baloise.ch
   license:
     name: Apache License 2.0
     url: https://github.com/baloise/corellia/blob/master/LICENSE.txt
-  description: 'Operations tagged version across 2 of this provider''s published API definitions: corellia-openapi.json, baloise-corellia-contracts-openapi.yml. Each path carries the servers of the definition it was published in.'
+  version: 0.1.0
 tags:
 - name: Version
 paths:
@@ -61,6 +61,3 @@ components:
         value:
           type: string
           description: Version identifier of the current API definition
-x-refined-from:
-- corellia-openapi.json
-- baloise-corellia-contracts-openapi.yml

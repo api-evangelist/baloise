@@ -1,10 +1,8 @@
 {
   "provider": "baloise",
   "sources": [
-    "_original/corellia-openapi.json",
-    "_original/oim-api-v0.8.yaml",
-    "baloise-corellia-contracts-openapi.yml",
-    "baloise-oim-openapi.yml"
+    "_original/baloise-corellia-contracts-openapi.yml",
+    "_original/baloise-oim-openapi.yml"
   ],
   "outputs": [
     "baloise-contracts-api-openapi.yml",
@@ -17,25 +15,12 @@
     "baloise-orders-api-openapi.yml",
     "baloise-pgsql-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/baloise-corellia-contracts-openapi.yml",
-    "archived openapi/baloise-oim-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
+    "2 archived document(s) dropped as subsets of other archived documents",
     "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "corellia-openapi.json: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
-    "corellia-openapi.json: declared missing tag: contracts",
-    "corellia-openapi.json: declared missing tag: documents",
-    "corellia-openapi.json: declared missing tag: version",
-    "oim-api-v0.8.yaml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0; renamed 17 component key(s) illegal in 3.x (e.g. JBoss Catalog Reference)",
-    "oim-api-v0.8.yaml: declared missing tag: DB",
-    "oim-api-v0.8.yaml: declared missing tag: JBoss",
-    "oim-api-v0.8.yaml: declared missing tag: Middlewares",
-    "oim-api-v0.8.yaml: declared missing tag: VMs",
-    "oim-api-v0.8.yaml: declared missing tag: orders",
-    "oim-api-v0.8.yaml: declared missing tag: pgsql",
     "baloise-corellia-contracts-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
     "baloise-corellia-contracts-openapi.yml: declared missing tag: contracts",
     "baloise-corellia-contracts-openapi.yml: declared missing tag: documents",
@@ -47,16 +32,19 @@
     "baloise-oim-openapi.yml: declared missing tag: VMs",
     "baloise-oim-openapi.yml: declared missing tag: orders",
     "baloise-oim-openapi.yml: declared missing tag: pgsql",
-    "tag 'contracts' spans 2 source specs (corellia-openapi.json, baloise-corellia-contracts-openapi.yml): per-path servers applied",
-    "tag 'documents' spans 2 source specs (corellia-openapi.json, baloise-corellia-contracts-openapi.yml): per-path servers applied",
-    "tag 'version' spans 2 source specs (corellia-openapi.json, baloise-corellia-contracts-openapi.yml): per-path servers applied",
-    "tag 'DB' spans 2 source specs (oim-api-v0.8.yaml, baloise-oim-openapi.yml): per-path servers applied",
-    "tag 'JBoss' spans 2 source specs (oim-api-v0.8.yaml, baloise-oim-openapi.yml): per-path servers applied",
-    "tag 'Middlewares' spans 2 source specs (oim-api-v0.8.yaml, baloise-oim-openapi.yml): per-path servers applied",
-    "tag 'VMs' spans 2 source specs (oim-api-v0.8.yaml, baloise-oim-openapi.yml): per-path servers applied",
-    "tag 'orders' spans 2 source specs (oim-api-v0.8.yaml, baloise-oim-openapi.yml): per-path servers applied",
-    "tag 'pgsql' spans 2 source specs (oim-api-v0.8.yaml, baloise-oim-openapi.yml): per-path servers applied",
-    "apis.yml register: written (+9 apis, 9 total)"
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "_original/oim-api-v0.8.yaml: archived document superseded by a larger archived document",
+    "_original/corellia-openapi.json: archived document superseded by a larger archived document",
+    "baloise-contracts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "baloise-db-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "baloise-documents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "baloise-jboss-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "baloise-middlewares-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "baloise-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "baloise-pgsql-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "baloise-version-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "baloise-vms-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

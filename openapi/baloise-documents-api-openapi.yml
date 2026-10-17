@@ -1,13 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Baloise Documents API
-  version: 0.1.0
+  title: Contracts Documents API
+  description: An API which allows to communicate with SaaS Providers, which produce Contracts for the host of this API
   contact:
     email: Group.CH_Open-Source@baloise.ch
   license:
     name: Apache License 2.0
     url: https://github.com/baloise/corellia/blob/master/LICENSE.txt
-  description: 'Operations tagged documents across 2 of this provider''s published API definitions: corellia-openapi.json, baloise-corellia-contracts-openapi.yml. Each path carries the servers of the definition it was published in.'
+  version: 0.1.0
 tags:
 - name: Documents
 paths:
@@ -73,7 +73,7 @@ components:
       properties:
         data:
           type: array
-          description: The document itself. If the documentType is CONTRACT then the document must contain one of these keywords 'Versicherungsvertrag, Contrat d�assurance, Contratto di assicurazione, Insurance policy'
+          description: The document itself. If the documentType is CONTRACT then the document must contain one of these keywords 'Versicherungsvertrag, Contrat d’assurance, Contratto di assicurazione, Insurance policy'
           items:
             type: string
             format: byte
@@ -130,46 +130,3 @@ components:
         handle:
           type: string
           description: Reference to an uploaded document. This can be a PDF or a picture (e.g. JPG) of a contract or a purchase receipt.
-    Document_2:
-      required:
-      - contractId
-      - data
-      - documentType
-      - fileName
-      - mediaType
-      type: object
-      properties:
-        data:
-          type: array
-          description: The document itself. If the documentType is CONTRACT then the document must contain one of these keywords 'Versicherungsvertrag, Contrat d’assurance, Contratto di assicurazione, Insurance policy'
-          items:
-            type: string
-            format: byte
-        contractId:
-          maxLength: 20
-          minLength: 0
-          type: string
-          description: The contract this document belongs to
-        mediaType:
-          type: string
-          description: Accepted media types for documents represented by data byte[]
-          enum:
-          - APPLICATION_PDF
-          - IMAGE_JPEG
-          - IMAGE_TIFF
-          - IMAGE_PNG
-          - IMAGE_BMP
-          - IMAGE_GIF
-        fileName:
-          maxLength: 256
-          minLength: 0
-          type: string
-        documentType:
-          type: string
-          enum:
-          - CONTRACT
-          - RECEIPT
-          - COVER_LETTER
-x-refined-from:
-- corellia-openapi.json
-- baloise-corellia-contracts-openapi.yml
