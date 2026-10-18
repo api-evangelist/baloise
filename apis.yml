@@ -94,6 +94,8 @@ apis:
   description: The contracts API from Baloise — 2 operation(s) for contracts.
   humanURL: https://github.com/baloise/corellia
   tags:
+  - Contracts
+  tags_raw:
   - contracts
   properties:
   - type: OpenAPI
@@ -136,6 +138,8 @@ apis:
   description: The documents API from Baloise — 1 operation(s) for documents.
   humanURL: https://github.com/baloise/corellia
   tags:
+  - Documents
+  tags_raw:
   - documents
   properties:
   - type: OpenAPI
@@ -199,6 +203,8 @@ apis:
   description: The orders API from Baloise — 2 operation(s) for orders.
   humanURL: https://github.com/baloise/corellia
   tags:
+  - Order
+  tags_raw:
   - orders
   properties:
   - type: OpenAPI
@@ -241,6 +247,8 @@ apis:
   description: The version API from Baloise — 1 operation(s) for version.
   humanURL: https://github.com/baloise/corellia
   tags:
+  - Version
+  tags_raw:
   - version
   properties:
   - type: OpenAPI
