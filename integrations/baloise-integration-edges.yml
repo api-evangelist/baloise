@@ -1,0 +1,43 @@
+edges:
+- partner_name: FINMA authorised institutions (Switzerland)
+  partner: null
+  partner_match: register-name
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.finma.ch/en/finma-public/authorised-institutions-individuals-and-products/
+  category: Swiss financial supervisory licence (FINMA)
+  contract_reference:
+    register: FINMA authorised institutions (Switzerland)
+    spec_file: null
+    standard: null
+    role: licensed-participant
+    registrations:
+    - registered_name: Baloise Bank AG
+      licences:
+      - bank
+      register_country: CH
+      matched_domain: null
+      matched_by: register-name
+      register_name_note: register-name 'baloise' = baloise; no wikidata P856
+    signal_note: 'participation only: a supervisory licence / authorisation; no API conformance is published by
+      this register'
+    detected_by: sweep-dach-financial-registers.py
+    detected: '2026-10-21'
+    matched_by: register-name
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  detected_by: sweep-dach-financial-registers.py
+  first_seen: '2026-10-21'
+generated: '2026-10-21'
+method: searched
+source:
+- https://portal.mvp.bafin.de/database/InstInfo/
+- https://www.dnb.nl/en/public-register/
+- https://www.finma.ch/en/finma-public/authorised-institutions-individuals-and-products/
+checked:
+- https://portal.mvp.bafin.de/database/InstInfo/
+- https://www.dnb.nl/en/public-register/
+- https://www.finma.ch/en/finma-public/authorised-institutions-individuals-and-products/
