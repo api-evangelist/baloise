@@ -61,3 +61,9 @@ components:
         value:
           type: string
           description: Version identifier of the current API definition
+x-provenance:
+  method: harvested
+  publisher: Baloise
+  source: https://raw.githubusercontent.com/baloise/corellia/master/docs/swagger.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
