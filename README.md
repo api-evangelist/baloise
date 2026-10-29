@@ -64,5 +64,137 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Baloise is a company surfaced via the API Evangelist harvest backlog (source: spectral-ruleset-web) and added to the network as a stub for full-pipeline profiling.
-- https://github.com/baloise-incubator/spectral-ruleset
+Baloise Group is a Basel, Switzerland-based insurance and pension group (GitHub org 'Baloise Group', Aeschengraben 21, 4002 Basel) that publishes open-source work through its baloise and baloise-incubator GitHub organizations. Its API-related open source includes a custom Spectral API linter ruleset for the Zalando RESTful API Guidelines, the Corellia B2B Web-API specification for insurance contract data, the GitOps CLI and the Baloise Design System. Its former website, www.baloise.com, now redirects to the Helvetia Baloise Group corporate site (helvetia-baloise.com) following the Helvetia-Baloise merger.
+
+**Areas:** Company · Insurance · Financial Services · Switzerland · Open Source · API Governance · Spectral · Linting
+
+## Baloise on APIs.io
+
+Everything profiled for Baloise is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/baloise/](https://apis.io/providers/baloise/)** — or go straight to one of the APIs or properties below.
+
+### APIs (9)
+
+- [Baloise Contracts API](https://apis.io/apis/baloise/baloise-contracts-api/) — The contracts API from Baloise — 2 operation(s) for contracts.
+- [Baloise DB API](https://apis.io/apis/baloise/baloise-db-api/) — The DB API from Baloise — 2 operation(s) for db.
+- [Baloise Documents API](https://apis.io/apis/baloise/baloise-documents-api/) — The documents API from Baloise — 1 operation(s) for documents.
+- [Baloise J Boss API](https://apis.io/apis/baloise/baloise-jboss-api/) — The JBoss API from Baloise — 1 operation(s) for jboss.
+- [Baloise Middlewares API](https://apis.io/apis/baloise/baloise-middlewares-api/) — The Middlewares API from Baloise — 1 operation(s) for middlewares.
+- [Baloise Orders API](https://apis.io/apis/baloise/baloise-orders-api/) — The orders API from Baloise — 2 operation(s) for orders.
+- [Baloise Pgsql API](https://apis.io/apis/baloise/baloise-pgsql-api/) — The pgsql API from Baloise — 2 operation(s) for pgsql.
+- [Baloise Version API](https://apis.io/apis/baloise/baloise-version-api/) — The version API from Baloise — 1 operation(s) for version.
+- [Baloise VMs API](https://apis.io/apis/baloise/baloise-vms-api/) — The VMs API from Baloise — 2 operation(s) for vms.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [baloise](https://apis.io/servers/baloise/baloise/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Baloise Agentic Access](https://apis.io/agentic-access/baloise/baloise-agentic-access/)
+
+#### JSON Schema (3)
+
+The data models the API reads and writes.
+
+- [Cancellation](https://apis.io/schemas/baloise/baloise-cancellation/)
+- [Contract](https://apis.io/schemas/baloise/baloise-contract/)
+- [Document](https://apis.io/schemas/baloise/baloise-document/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Baloise Context](https://apis.io/jsonld/baloise/baloise-context/)
+
+#### Overlays (2)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Baloise Corellia Contracts Overlay](https://apis.io/overlays/baloise/baloise-corellia-contracts-overlay/)
+- [Baloise Oim Overlay](https://apis.io/overlays/baloise/baloise-oim-overlay/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Baloise API Rules](https://apis.io/rules/baloise/baloise-rules/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Baloise Plans Pricing](https://apis.io/plans/baloise/baloise-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Baloise Rate Limits](https://apis.io/rate-limits/baloise/baloise-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://github.com/baloise-incubator/spectral-ruleset)
+- [GitHub](https://github.com/baloise)
+
+## API Evangelist rating
+
+**Kin Score 24.2** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 55.6 |
+| Contract governance | 22.0 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 16.1 |
+| Access clarity | 0.0 |
+
+**Agent readiness 25.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 4.4** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/baloise/](https://apis.io/providers/baloise/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Baloise: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/baloise/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
